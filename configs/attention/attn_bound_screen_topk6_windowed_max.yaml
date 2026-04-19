@@ -1,0 +1,15 @@
+method:
+  name: adaptive_attention
+
+adaptive_attention:
+  block_size: 64
+  top_k: 6
+  mode: residual_refine
+  selector: bound_screen
+  delta: 1.0
+  summary: mean
+  impl: gather_windowed
+  query_window_size: 64      # one window per block-sized chunk of queries
+  query_score: max
+  target_layers: all
+  debug_exact: false

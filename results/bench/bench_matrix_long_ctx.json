@@ -1,0 +1,235 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "ctx_lens": [
+    16384,
+    32768
+  ],
+  "iters_prefill": 5,
+  "warmup_prefill": 2,
+  "iters_decode": 2,
+  "warmup_decode": 1,
+  "results": [
+    {
+      "name": "baseline",
+      "patch_meta": {
+        "method": "baseline"
+      },
+      "rows": [
+        {
+          "ctx_len": 16384,
+          "prefill_median_ms": 5514.6875,
+          "prefill_mean_ms": 5519.0796875,
+          "prefill_p95_ms": 5565.09521484375,
+          "prefill_std_ms": 33.44123859275709,
+          "decode_total_median_ms": 4748.421142578125,
+          "decode_total_p95_ms": 4752.1103515625,
+          "decode_tok_s_approx": 1.6847705289376358
+        },
+        {
+          "ctx_len": 32768,
+          "prefill_median_ms": 28703.02734375,
+          "prefill_mean_ms": 28899.452734375,
+          "prefill_p95_ms": 29949.697265625,
+          "prefill_std_ms": 563.5104403125532,
+          "decode_total_median_ms": 14425.86962890625,
+          "decode_total_p95_ms": 14427.376953125,
+          "decode_tok_s_approx": 0.5545592886802312
+        }
+      ]
+    },
+    {
+      "name": "attn_fixed_topk6_residual_gather_shared",
+      "patch_meta": {
+        "method": "adaptive_attention",
+        "n_layers": 28,
+        "targeted_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "block_size": 64,
+        "top_k": 6,
+        "mode": "residual_refine",
+        "selector": "fixed_topk",
+        "summary": "mean"
+      },
+      "rows": [
+        {
+          "ctx_len": 16384,
+          "prefill_median_ms": 2501.635009765625,
+          "prefill_mean_ms": 2500.3912109375,
+          "prefill_p95_ms": 2521.2705078125,
+          "prefill_std_ms": 13.069940113296719,
+          "decode_total_median_ms": 2171.510986328125,
+          "decode_total_p95_ms": 2171.93701171875,
+          "decode_tok_s_approx": 3.684070700248884
+        },
+        {
+          "ctx_len": 32768,
+          "prefill_median_ms": 5517.62646484375,
+          "prefill_mean_ms": 5515.64453125,
+          "prefill_p95_ms": 5530.16650390625,
+          "prefill_std_ms": 10.394358946394632,
+          "decode_total_median_ms": 6618.052734375,
+          "decode_total_p95_ms": 6618.85888671875,
+          "decode_tok_s_approx": 1.2088147860241414
+        }
+      ]
+    },
+    {
+      "name": "attn_block64_topk8_residual_gather_shared",
+      "patch_meta": {
+        "method": "adaptive_attention",
+        "n_layers": 28,
+        "targeted_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "block_size": 64,
+        "top_k": 8,
+        "mode": "residual_refine",
+        "selector": "fixed_topk",
+        "summary": "mean"
+      },
+      "rows": [
+        {
+          "ctx_len": 16384,
+          "prefill_median_ms": 2628.76904296875,
+          "prefill_mean_ms": 2626.20830078125,
+          "prefill_p95_ms": 2636.595947265625,
+          "prefill_std_ms": 7.772020883575316,
+          "decode_total_median_ms": 2305.1607666015625,
+          "decode_total_p95_ms": 2306.866455078125,
+          "decode_tok_s_approx": 3.4704737803577093
+        },
+        {
+          "ctx_len": 32768,
+          "prefill_median_ms": 6027.41796875,
+          "prefill_mean_ms": 6026.9919921875,
+          "prefill_p95_ms": 6047.68212890625,
+          "prefill_std_ms": 11.636454636674483,
+          "decode_total_median_ms": 5578.966064453125,
+          "decode_total_p95_ms": 5579.0986328125,
+          "decode_tok_s_approx": 1.4339574587077535
+        }
+      ]
+    },
+    {
+      "name": "attn_bound_screen_topk6_residual",
+      "patch_meta": {
+        "method": "adaptive_attention",
+        "n_layers": 28,
+        "targeted_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "block_size": 64,
+        "top_k": 6,
+        "mode": "residual_refine",
+        "selector": "bound_screen",
+        "summary": "mean"
+      },
+      "rows": [
+        {
+          "ctx_len": 16384,
+          "prefill_median_ms": 2458.356201171875,
+          "prefill_mean_ms": 2461.29912109375,
+          "prefill_p95_ms": 2475.3564453125,
+          "prefill_std_ms": 9.051596852360339,
+          "decode_total_median_ms": 2987.1192626953125,
+          "decode_total_p95_ms": 2991.2734375,
+          "decode_tok_s_approx": 2.6781655824419635
+        },
+        {
+          "ctx_len": 32768,
+          "prefill_median_ms": 5415.44580078125,
+          "prefill_mean_ms": 5422.3232421875,
+          "prefill_p95_ms": 5446.384765625,
+          "prefill_std_ms": 14.6324535091619,
+          "decode_total_median_ms": 6185.090087890625,
+          "decode_total_p95_ms": 6190.63427734375,
+          "decode_tok_s_approx": 1.2934330602011224
+        }
+      ]
+    }
+  ],
+  "torch_version": "2.10.0+rocm7.2.1.gitb6dec82d",
+  "hip_version": "7.2.53211"
+}

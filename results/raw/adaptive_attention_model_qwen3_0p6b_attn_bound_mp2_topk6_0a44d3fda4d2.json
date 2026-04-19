@@ -1,0 +1,156 @@
+{
+  "run_id": "adaptive_attention/model_qwen3_0p6b/attn_bound_mp2_topk6/0a44d3fda4d2",
+  "created_at": "2026-04-19T04:57:14.003079Z",
+  "host": "toolbx",
+  "config_hash": "0a44d3fda4d2",
+  "config": {
+    "model": {
+      "name": "Qwen/Qwen3-0.6B",
+      "dtype": "bfloat16",
+      "device": "cuda",
+      "attn_impl": "sdpa",
+      "max_seq_len": 40960,
+      "trust_remote_code": false
+    },
+    "patching": {
+      "target_attention_layers": "all",
+      "target_ffn_layers": "all"
+    },
+    "method": {
+      "name": "adaptive_attention"
+    },
+    "adaptive_attention": {
+      "block_size": 64,
+      "top_k": 6,
+      "mode": "residual_refine",
+      "selector": "bound_screen",
+      "delta": 1.0,
+      "summary": "mean",
+      "impl": "gather_windowed",
+      "query_window_size": 64,
+      "query_score": "max",
+      "num_prototypes": 2,
+      "target_layers": "all",
+      "debug_exact": false
+    }
+  },
+  "model_config_path": "configs/base/model_qwen3_0p6b.yaml",
+  "method_config_path": "configs/attention/attn_bound_mp2_topk6.yaml",
+  "model_info": {
+    "name": "Qwen/Qwen3-0.6B",
+    "dtype": "torch.bfloat16",
+    "device": "cuda",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 40960,
+    "vocab_size": 151936,
+    "total_params": 596049920
+  },
+  "method": {
+    "name": "adaptive_attention"
+  },
+  "patch_meta": {
+    "method": "adaptive_attention",
+    "n_layers": 28,
+    "targeted_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "block_size": 64,
+    "top_k": 6,
+    "mode": "residual_refine",
+    "selector": "bound_screen",
+    "summary": "mean"
+  },
+  "metrics": {
+    "perplexity": 11.11389062951261,
+    "nll_mean": 2.408195734024048,
+    "peak_memory_mb": 3894.71533203125
+  },
+  "latency": {
+    "prefill": [
+      {
+        "ctx_len": 2048,
+        "n": 5,
+        "mean_ms": 695.0043090820312,
+        "median_ms": 693.1605224609375,
+        "std_ms": 4.219190045754154,
+        "p95_ms": 702.0947265625,
+        "min_ms": 689.72509765625,
+        "max_ms": 702.0947265625
+      },
+      {
+        "ctx_len": 8192,
+        "n": 5,
+        "mean_ms": 3379.23203125,
+        "median_ms": 3373.84619140625,
+        "std_ms": 20.551130142020174,
+        "p95_ms": 3410.224609375,
+        "min_ms": 3354.5009765625,
+        "max_ms": 3410.224609375
+      }
+    ],
+    "decode": [
+      {
+        "ctx_len": 2048,
+        "decode_len": 8,
+        "total_median_ms": 1892.4124755859375,
+        "total_p95_ms": 2067.189697265625,
+        "decode_tok_s_approx": 4.2274081909775,
+        "per_step_ms_approx": 236.5515594482422
+      },
+      {
+        "ctx_len": 8192,
+        "decode_len": 8,
+        "total_median_ms": 3303.77001953125,
+        "total_p95_ms": 3342.283447265625,
+        "decode_tok_s_approx": 2.4214760569608496,
+        "per_step_ms_approx": 412.97125244140625
+      }
+    ],
+    "peak_memory_mb": 3894.71533203125
+  },
+  "composite_q": {
+    "q": 0.998391968860807,
+    "components": {
+      "perplexity": 0.998391968860807
+    },
+    "weights": {
+      "perplexity": 1.0
+    }
+  },
+  "torch_version": "2.10.0+rocm7.2.1.gitb6dec82d",
+  "hip_version": "7.2.53211"
+}

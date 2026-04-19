@@ -1,0 +1,144 @@
+{
+  "run_id": "baseline/model_qwen3_0p6b/d7cc62251aa8",
+  "created_at": "2026-04-19T01:31:23.256245Z",
+  "host": "toolbx",
+  "config_path": "configs/base/model_qwen3_0p6b.yaml",
+  "config_hash": "d7cc62251aa8",
+  "config": {
+    "model": {
+      "name": "Qwen/Qwen3-0.6B",
+      "dtype": "bfloat16",
+      "device": "cuda",
+      "attn_impl": "sdpa",
+      "max_seq_len": 40960,
+      "trust_remote_code": false
+    },
+    "patching": {
+      "target_attention_layers": "all",
+      "target_ffn_layers": "all"
+    }
+  },
+  "method": {
+    "name": "baseline"
+  },
+  "model_info": {
+    "name": "Qwen/Qwen3-0.6B",
+    "dtype": "torch.bfloat16",
+    "device": "cuda",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 40960,
+    "vocab_size": 151936,
+    "total_params": 596049920
+  },
+  "metrics": {
+    "perplexity": 11.09601914730277,
+    "nll_mean": 2.4065864086151123,
+    "peak_memory_mb": 5993.0146484375
+  },
+  "latency": {
+    "prefill": [
+      {
+        "ctx_len": 512,
+        "n": 5,
+        "mean_ms": 271.37171630859376,
+        "median_ms": 298.8741455078125,
+        "std_ms": 58.32868596129814,
+        "p95_ms": 322.0417175292969,
+        "min_ms": 159.9014892578125,
+        "max_ms": 322.0417175292969
+      },
+      {
+        "ctx_len": 2048,
+        "n": 5,
+        "mean_ms": 763.6079956054688,
+        "median_ms": 856.6575317382812,
+        "std_ms": 114.81244254544684,
+        "p95_ms": 857.6203002929688,
+        "min_ms": 609.8907470703125,
+        "max_ms": 857.6203002929688
+      },
+      {
+        "ctx_len": 4096,
+        "n": 5,
+        "mean_ms": 1680.9744140625,
+        "median_ms": 1666.695556640625,
+        "std_ms": 79.9762666794468,
+        "p95_ms": 1783.787353515625,
+        "min_ms": 1584.917236328125,
+        "max_ms": 1783.787353515625
+      },
+      {
+        "ctx_len": 8192,
+        "n": 5,
+        "mean_ms": 3428.862060546875,
+        "median_ms": 3436.067138671875,
+        "std_ms": 56.18073734092406,
+        "p95_ms": 3490.56689453125,
+        "min_ms": 3329.7421875,
+        "max_ms": 3490.56689453125
+      },
+      {
+        "ctx_len": 16384,
+        "n": 5,
+        "mean_ms": 5607.941796875,
+        "median_ms": 5609.70556640625,
+        "std_ms": 27.121055575353125,
+        "p95_ms": 5648.2109375,
+        "min_ms": 5564.5576171875,
+        "max_ms": 5648.2109375
+      }
+    ],
+    "decode": [
+      {
+        "ctx_len": 512,
+        "decode_len": 8,
+        "total_median_ms": 83.50016021728516,
+        "total_p95_ms": 83.68919372558594,
+        "decode_tok_s_approx": 95.80819939964547,
+        "per_step_ms_approx": 10.437520027160645
+      },
+      {
+        "ctx_len": 2048,
+        "decode_len": 8,
+        "total_median_ms": 236.75404357910156,
+        "total_p95_ms": 238.4019775390625,
+        "decode_tok_s_approx": 33.790341567396,
+        "per_step_ms_approx": 29.594255447387695
+      },
+      {
+        "ctx_len": 4096,
+        "decode_len": 8,
+        "total_median_ms": 561.6116333007812,
+        "total_p95_ms": 561.6937255859375,
+        "decode_tok_s_approx": 14.24471917182573,
+        "per_step_ms_approx": 70.20145416259766
+      },
+      {
+        "ctx_len": 8192,
+        "decode_len": 8,
+        "total_median_ms": 1828.9588623046875,
+        "total_p95_ms": 1831.1195068359375,
+        "decode_tok_s_approx": 4.374073230886739,
+        "per_step_ms_approx": 228.61985778808594
+      },
+      {
+        "ctx_len": 16384,
+        "decode_len": 8,
+        "total_median_ms": 4834.11474609375,
+        "total_p95_ms": 4854.5166015625,
+        "decode_tok_s_approx": 1.6549048626668352,
+        "per_step_ms_approx": 604.2643432617188
+      }
+    ],
+    "peak_memory_mb": 5993.0146484375
+  },
+  "torch_version": "2.10.0+rocm7.2.1.gitb6dec82d",
+  "hip_version": "7.2.53211"
+}

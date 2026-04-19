@@ -1,0 +1,12 @@
+method:
+  name: adaptive_attention
+
+adaptive_attention:
+  block_size: 64
+  top_k: 16
+  mode: residual_refine
+  selector: fixed_topk
+  summary: mean
+  impl: gather_shared
+  target_layers: all
+  debug_exact: false

@@ -1,0 +1,173 @@
+{
+  "run_id": "adaptive_attention/model_qwen3_0p6b/attn_bound_screen_b16_topk24_windowed_max/0c95b8264fa1",
+  "created_at": "2026-04-19T04:21:26.724192Z",
+  "host": "toolbx",
+  "config_hash": "0c95b8264fa1",
+  "config": {
+    "model": {
+      "name": "Qwen/Qwen3-0.6B",
+      "dtype": "bfloat16",
+      "device": "cuda",
+      "attn_impl": "sdpa",
+      "max_seq_len": 40960,
+      "trust_remote_code": false
+    },
+    "patching": {
+      "target_attention_layers": "all",
+      "target_ffn_layers": "all"
+    },
+    "method": {
+      "name": "adaptive_attention"
+    },
+    "adaptive_attention": {
+      "block_size": 16,
+      "top_k": 24,
+      "mode": "residual_refine",
+      "selector": "bound_screen",
+      "delta": 1.0,
+      "summary": "mean",
+      "impl": "gather_windowed",
+      "query_window_size": 16,
+      "query_score": "max",
+      "target_layers": "all",
+      "debug_exact": false
+    }
+  },
+  "model_config_path": "configs/base/model_qwen3_0p6b.yaml",
+  "method_config_path": "configs/attention/attn_bound_screen_b16_topk24_windowed_max.yaml",
+  "model_info": {
+    "name": "Qwen/Qwen3-0.6B",
+    "dtype": "torch.bfloat16",
+    "device": "cuda",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 40960,
+    "vocab_size": 151936,
+    "total_params": 596049920
+  },
+  "method": {
+    "name": "adaptive_attention"
+  },
+  "patch_meta": {
+    "method": "adaptive_attention",
+    "n_layers": 28,
+    "targeted_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "block_size": 16,
+    "top_k": 24,
+    "mode": "residual_refine",
+    "selector": "bound_screen",
+    "summary": "mean"
+  },
+  "metrics": {
+    "perplexity": 11.11021867163699,
+    "nll_mean": 2.407865285873413,
+    "peak_memory_mb": 8544.59326171875
+  },
+  "latency": {
+    "prefill": [
+      {
+        "ctx_len": 2048,
+        "n": 5,
+        "mean_ms": 834.2627685546875,
+        "median_ms": 829.1923217773438,
+        "std_ms": 12.04752321654064,
+        "p95_ms": 851.1483764648438,
+        "min_ms": 818.1328735351562,
+        "max_ms": 851.1483764648438
+      },
+      {
+        "ctx_len": 4096,
+        "n": 5,
+        "mean_ms": 1899.074462890625,
+        "median_ms": 1896.264892578125,
+        "std_ms": 9.18249792151164,
+        "p95_ms": 1916.43896484375,
+        "min_ms": 1889.003662109375,
+        "max_ms": 1916.43896484375
+      },
+      {
+        "ctx_len": 8192,
+        "n": 5,
+        "mean_ms": 4584.24580078125,
+        "median_ms": 4572.01806640625,
+        "std_ms": 23.317040840520527,
+        "p95_ms": 4625.82080078125,
+        "min_ms": 4560.31884765625,
+        "max_ms": 4625.82080078125
+      }
+    ],
+    "decode": [
+      {
+        "ctx_len": 2048,
+        "decode_len": 8,
+        "total_median_ms": 1405.6650390625,
+        "total_p95_ms": 1429.4237060546875,
+        "decode_tok_s_approx": 5.691256293416497,
+        "per_step_ms_approx": 175.7081298828125
+      },
+      {
+        "ctx_len": 4096,
+        "decode_len": 8,
+        "total_median_ms": 1925.1669921875,
+        "total_p95_ms": 1926.2669677734375,
+        "decode_tok_s_approx": 4.155483671008653,
+        "per_step_ms_approx": 240.6458740234375
+      },
+      {
+        "ctx_len": 8192,
+        "decode_len": 8,
+        "total_median_ms": 5189.4326171875,
+        "total_p95_ms": 5212.1865234375,
+        "decode_tok_s_approx": 1.5415943495448514,
+        "per_step_ms_approx": 648.6790771484375
+      }
+    ],
+    "peak_memory_mb": 8544.59326171875
+  },
+  "composite_q": {
+    "q": 0.9987219401567253,
+    "components": {
+      "perplexity": 0.9987219401567253
+    },
+    "weights": {
+      "perplexity": 1.0
+    }
+  },
+  "torch_version": "2.10.0+rocm7.2.1.gitb6dec82d",
+  "hip_version": "7.2.53211"
+}

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# tb: run a command inside the rocm-7.2 toolbox with correct env.
+# Usage: ./tb python3 -c 'import torch; print(torch.__version__)'
+#        ./tb pytest -q tests/
+#
+# Notes:
+# - LD_LIBRARY_PATH points at the ROCm 7.2 install so torch can find libroctx.
+# - TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1 unlocks the flash/mem-efficient
+#   SDPA kernels on gfx1151 that torch 2.10 still gates behind the experimental
+#   flag. Without it, SDPA falls back to a slow math path and every latency
+#   number in this repo is against a handicapped baseline.
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec toolbox run -c llama-rocm-7.2 bash -c '
+  export LD_LIBRARY_PATH="/opt/rocm/lib:/opt/rocm-7.2.0/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+  export PYTHONPATH="'"$HERE"'/src${PYTHONPATH:+:$PYTHONPATH}"
+  export TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=${TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL:-1}
+  cd "'"$HERE"'"
+  exec "$@"
+' _ "$@"

@@ -1,0 +1,11 @@
+model:
+  name: Qwen/Qwen3-0.6B
+  dtype: bfloat16
+  device: cuda
+  attn_impl: sdpa
+  max_seq_len: 40960
+  trust_remote_code: false
+
+patching:
+  target_attention_layers: all
+  target_ffn_layers: all

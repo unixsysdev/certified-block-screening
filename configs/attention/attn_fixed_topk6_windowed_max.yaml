@@ -1,0 +1,14 @@
+method:
+  name: adaptive_attention
+
+adaptive_attention:
+  block_size: 64
+  top_k: 6
+  mode: residual_refine
+  selector: fixed_topk
+  summary: mean
+  impl: gather_windowed
+  query_window_size: 64
+  query_score: max
+  target_layers: all
+  debug_exact: false

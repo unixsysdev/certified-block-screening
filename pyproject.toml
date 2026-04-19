@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adaptive-llm-speed"
+version = "0.0.1"
+description = "Adaptive coarse-to-exact attention and low-rank FFN compression for small LLM inference"
+requires-python = ">=3.11"
+dependencies = [
+  "torch>=2.5",
+  "transformers>=5.0",
+  "accelerate>=1.0",
+  "datasets>=4.0",
+  "safetensors>=0.5",
+  "numpy>=2.0",
+  "pyyaml>=6.0",
+  "einops>=0.8",
+  "tqdm>=4.66",
+  "rich>=13",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,19 @@
+# Smaller block size to keep the per-block summary from being diluted by 64
+# filler tokens. With block=16, the passkey occupies 1/16 of its block's summary
+# instead of 1/64 — much stronger signal. Compensate budget by raising top_k so
+# total gathered tokens (k·b = 24·16 = 384) is similar to b=64/k=6 (384).
+method:
+  name: adaptive_attention
+
+adaptive_attention:
+  block_size: 16
+  top_k: 24
+  mode: residual_refine
+  selector: bound_screen
+  delta: 1.0
+  summary: mean
+  impl: gather_windowed
+  query_window_size: 16
+  query_score: max
+  target_layers: all
+  debug_exact: false

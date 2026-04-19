@@ -1,0 +1,14 @@
+# A sanity config: patches attention but the core falls through to full causal
+# attention. Used to verify that our patching infrastructure (forward swap,
+# RoPE, KV cache) is equivalent to the stock SDPA path.
+method:
+  name: adaptive_attention
+
+adaptive_attention:
+  block_size: 64
+  top_k: 4
+  mode: coarse_replace
+  selector: fixed_topk
+  summary: mean
+  target_layers: all
+  debug_exact: true

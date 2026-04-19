@@ -1,0 +1,11 @@
+method:
+  name: ffn_lowrank
+
+ffn_lowrank:
+  rank: 768
+  init: svd
+  patch_gate_proj: true
+  patch_up_proj: true
+  patch_down_proj: true
+  target_layers: all
+  keep_dense_for_debug: false

@@ -1,0 +1,11 @@
+method:
+  name: adaptive_attention
+
+adaptive_attention:
+  block_size: 64
+  top_k: 8
+  mode: residual_refine
+  selector: fixed_topk
+  summary: mean
+  target_layers: all
+  debug_exact: false

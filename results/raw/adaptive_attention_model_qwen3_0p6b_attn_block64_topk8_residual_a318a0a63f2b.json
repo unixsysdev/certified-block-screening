@@ -1,0 +1,151 @@
+{
+  "run_id": "adaptive_attention/model_qwen3_0p6b/attn_block64_topk8_residual/a318a0a63f2b",
+  "created_at": "2026-04-19T01:05:00.937193Z",
+  "host": "toolbx",
+  "config_hash": "a318a0a63f2b",
+  "config": {
+    "model": {
+      "name": "Qwen/Qwen3-0.6B",
+      "dtype": "bfloat16",
+      "device": "cuda",
+      "attn_impl": "sdpa",
+      "max_seq_len": 40960,
+      "trust_remote_code": false
+    },
+    "patching": {
+      "target_attention_layers": "all",
+      "target_ffn_layers": "all"
+    },
+    "method": {
+      "name": "adaptive_attention"
+    },
+    "adaptive_attention": {
+      "block_size": 64,
+      "top_k": 8,
+      "mode": "residual_refine",
+      "selector": "fixed_topk",
+      "summary": "mean",
+      "target_layers": "all",
+      "debug_exact": false
+    }
+  },
+  "model_config_path": "configs/base/model_qwen3_0p6b.yaml",
+  "method_config_path": "configs/attention/attn_block64_topk8_residual.yaml",
+  "model_info": {
+    "name": "Qwen/Qwen3-0.6B",
+    "dtype": "torch.bfloat16",
+    "device": "cuda",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 40960,
+    "vocab_size": 151936,
+    "total_params": 596049920
+  },
+  "method": {
+    "name": "adaptive_attention"
+  },
+  "patch_meta": {
+    "method": "adaptive_attention",
+    "n_layers": 28,
+    "targeted_layers": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "block_size": 64,
+    "top_k": 8,
+    "mode": "residual_refine",
+    "selector": "fixed_topk",
+    "summary": "mean"
+  },
+  "metrics": {
+    "perplexity": 11.085865087235712,
+    "nll_mean": 2.4056708812713623,
+    "peak_memory_mb": 2017.51708984375
+  },
+  "latency": {
+    "prefill": [
+      {
+        "ctx_len": 512,
+        "n": 5,
+        "mean_ms": 79.74371185302735,
+        "median_ms": 79.82099151611328,
+        "std_ms": 0.2441575948253426,
+        "p95_ms": 80.01974487304688,
+        "min_ms": 79.28736114501953,
+        "max_ms": 80.01974487304688
+      },
+      {
+        "ctx_len": 2048,
+        "n": 5,
+        "mean_ms": 536.0236694335938,
+        "median_ms": 533.3370361328125,
+        "std_ms": 9.40230438645748,
+        "p95_ms": 553.03466796875,
+        "min_ms": 525.4727783203125,
+        "max_ms": 553.03466796875
+      }
+    ],
+    "decode": [
+      {
+        "ctx_len": 512,
+        "decode_len": 16,
+        "total_median_ms": 586.27880859375,
+        "total_p95_ms": 586.8782348632812,
+        "decode_tok_s_approx": 27.29076979326209,
+        "per_step_ms_approx": 36.642425537109375
+      },
+      {
+        "ctx_len": 2048,
+        "decode_len": 16,
+        "total_median_ms": 1288.1524658203125,
+        "total_p95_ms": 1299.7772216796875,
+        "decode_tok_s_approx": 12.420889936977288,
+        "per_step_ms_approx": 80.50952911376953
+      }
+    ],
+    "peak_memory_mb": 2017.51708984375
+  },
+  "composite_q": {
+    "q": 0.9987140824300624,
+    "components": {
+      "perplexity": 0.9987140824300624
+    },
+    "weights": {
+      "perplexity": 1.0
+    }
+  },
+  "torch_version": "2.10.0+rocm7.2.1.gitb6dec82d",
+  "hip_version": "7.2.53211"
+}

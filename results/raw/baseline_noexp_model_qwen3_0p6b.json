@@ -1,0 +1,90 @@
+{
+  "run_id": "baseline/model_qwen3_0p6b/d7cc62251aa8",
+  "created_at": "2026-04-19T00:52:14.813582Z",
+  "host": "toolbx",
+  "config_path": "configs/base/model_qwen3_0p6b.yaml",
+  "config_hash": "d7cc62251aa8",
+  "config": {
+    "model": {
+      "name": "Qwen/Qwen3-0.6B",
+      "dtype": "bfloat16",
+      "device": "cuda",
+      "attn_impl": "sdpa",
+      "max_seq_len": 40960,
+      "trust_remote_code": false
+    },
+    "patching": {
+      "target_attention_layers": "all",
+      "target_ffn_layers": "all"
+    }
+  },
+  "method": {
+    "name": "baseline"
+  },
+  "model_info": {
+    "name": "Qwen/Qwen3-0.6B",
+    "dtype": "torch.bfloat16",
+    "device": "cuda",
+    "architectures": [
+      "Qwen3ForCausalLM"
+    ],
+    "num_hidden_layers": 28,
+    "hidden_size": 1024,
+    "num_attention_heads": 16,
+    "num_key_value_heads": 8,
+    "intermediate_size": 3072,
+    "max_position_embeddings": 40960,
+    "vocab_size": 151936,
+    "total_params": 596049920
+  },
+  "metrics": {
+    "perplexity": 11.071609578542079,
+    "nll_mean": 2.404384136199951,
+    "peak_memory_mb": 2129.98583984375
+  },
+  "latency": {
+    "prefill": [
+      {
+        "ctx_len": 512,
+        "n": 5,
+        "mean_ms": 145.9384506225586,
+        "median_ms": 109.35493469238281,
+        "std_ms": 73.98033572157978,
+        "p95_ms": 293.89654541015625,
+        "min_ms": 108.29373168945312,
+        "max_ms": 293.89654541015625
+      },
+      {
+        "ctx_len": 2048,
+        "n": 5,
+        "mean_ms": 1304.71650390625,
+        "median_ms": 1312.6365966796875,
+        "std_ms": 17.462250239136445,
+        "p95_ms": 1327.267822265625,
+        "min_ms": 1278.3470458984375,
+        "max_ms": 1327.267822265625
+      }
+    ],
+    "decode": [
+      {
+        "ctx_len": 512,
+        "decode_len": 32,
+        "total_median_ms": 1064.66259765625,
+        "total_p95_ms": 1078.663818359375,
+        "decode_tok_s_approx": 30.056470538595843,
+        "per_step_ms_approx": 33.27070617675781
+      },
+      {
+        "ctx_len": 2048,
+        "decode_len": 32,
+        "total_median_ms": 2895.177490234375,
+        "total_p95_ms": 2903.668212890625,
+        "decode_tok_s_approx": 11.052862944651274,
+        "per_step_ms_approx": 90.47429656982422
+      }
+    ],
+    "peak_memory_mb": 2129.98583984375
+  },
+  "torch_version": "2.10.0+rocm7.2.1.gitb6dec82d",
+  "hip_version": "7.2.53211"
+}

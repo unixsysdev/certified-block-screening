@@ -1,0 +1,813 @@
+{
+  "model": "Qwen/Qwen3-0.6B",
+  "ctx_lens": [
+    2048,
+    4096
+  ],
+  "depths": [
+    0.1,
+    0.5,
+    0.9
+  ],
+  "trials": 5,
+  "results": [
+    {
+      "method": "baseline",
+      "patch_meta": {
+        "method": "baseline"
+      },
+      "rows": [
+        {
+          "ctx_len": 2048,
+          "depth": 0.1,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.04914109826087952,
+          "per_trial": [
+            {
+              "key": "60494",
+              "correct": true,
+              "logprob_per_token": -0.025757166743278503,
+              "completion_tokens": 5
+            },
+            {
+              "key": "65125",
+              "correct": true,
+              "logprob_per_token": -0.04828985333442688,
+              "completion_tokens": 5
+            },
+            {
+              "key": "15306",
+              "correct": true,
+              "logprob_per_token": -0.056595510244369505,
+              "completion_tokens": 5
+            },
+            {
+              "key": "43936",
+              "correct": true,
+              "logprob_per_token": -0.06975337266921997,
+              "completion_tokens": 5
+            },
+            {
+              "key": "77013",
+              "correct": true,
+              "logprob_per_token": -0.04530958831310272,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 2048,
+          "depth": 0.5,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.0348396760225296,
+          "per_trial": [
+            {
+              "key": "73691",
+              "correct": true,
+              "logprob_per_token": -0.03276236355304718,
+              "completion_tokens": 5
+            },
+            {
+              "key": "63075",
+              "correct": true,
+              "logprob_per_token": -0.02672647833824158,
+              "completion_tokens": 5
+            },
+            {
+              "key": "49755",
+              "correct": true,
+              "logprob_per_token": -0.04622114598751068,
+              "completion_tokens": 5
+            },
+            {
+              "key": "72468",
+              "correct": true,
+              "logprob_per_token": -0.03177037239074707,
+              "completion_tokens": 5
+            },
+            {
+              "key": "56930",
+              "correct": true,
+              "logprob_per_token": -0.0367180198431015,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 2048,
+          "depth": 0.9,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.06612454295158386,
+          "per_trial": [
+            {
+              "key": "86465",
+              "correct": true,
+              "logprob_per_token": -0.0662495493888855,
+              "completion_tokens": 5
+            },
+            {
+              "key": "38631",
+              "correct": true,
+              "logprob_per_token": -0.06445701122283935,
+              "completion_tokens": 5
+            },
+            {
+              "key": "76150",
+              "correct": true,
+              "logprob_per_token": -0.0709597885608673,
+              "completion_tokens": 5
+            },
+            {
+              "key": "28254",
+              "correct": true,
+              "logprob_per_token": -0.06063407063484192,
+              "completion_tokens": 5
+            },
+            {
+              "key": "46941",
+              "correct": true,
+              "logprob_per_token": -0.06832229495048522,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.1,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.07171007394790649,
+          "per_trial": [
+            {
+              "key": "28316",
+              "correct": true,
+              "logprob_per_token": -0.06579765081405639,
+              "completion_tokens": 5
+            },
+            {
+              "key": "22429",
+              "correct": true,
+              "logprob_per_token": -0.0506112813949585,
+              "completion_tokens": 5
+            },
+            {
+              "key": "91050",
+              "correct": true,
+              "logprob_per_token": -0.09051980376243592,
+              "completion_tokens": 5
+            },
+            {
+              "key": "42834",
+              "correct": true,
+              "logprob_per_token": -0.08158217668533325,
+              "completion_tokens": 5
+            },
+            {
+              "key": "79804",
+              "correct": true,
+              "logprob_per_token": -0.07003945708274842,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.5,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.04090094983577729,
+          "per_trial": [
+            {
+              "key": "88892",
+              "correct": true,
+              "logprob_per_token": -0.05514756441116333,
+              "completion_tokens": 5
+            },
+            {
+              "key": "29262",
+              "correct": true,
+              "logprob_per_token": -0.03811590671539307,
+              "completion_tokens": 5
+            },
+            {
+              "key": "50651",
+              "correct": true,
+              "logprob_per_token": -0.028658193349838258,
+              "completion_tokens": 5
+            },
+            {
+              "key": "22945",
+              "correct": true,
+              "logprob_per_token": -0.035651305317878725,
+              "completion_tokens": 5
+            },
+            {
+              "key": "19665",
+              "correct": true,
+              "logprob_per_token": -0.046931779384613036,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.9,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.015593618303537369,
+          "per_trial": [
+            {
+              "key": "99651",
+              "correct": true,
+              "logprob_per_token": -0.016552865505218506,
+              "completion_tokens": 5
+            },
+            {
+              "key": "53279",
+              "correct": true,
+              "logprob_per_token": -0.01646484583616257,
+              "completion_tokens": 5
+            },
+            {
+              "key": "71884",
+              "correct": true,
+              "logprob_per_token": -0.010123854130506515,
+              "completion_tokens": 5
+            },
+            {
+              "key": "83375",
+              "correct": true,
+              "logprob_per_token": -0.015612965822219849,
+              "completion_tokens": 5
+            },
+            {
+              "key": "23199",
+              "correct": true,
+              "logprob_per_token": -0.019213560223579406,
+              "completion_tokens": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "attn_bound_screen_topk6_windowed_max_delta5",
+      "patch_meta": {
+        "method": "adaptive_attention",
+        "n_layers": 28,
+        "targeted_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "block_size": 64,
+        "top_k": 6,
+        "mode": "residual_refine",
+        "selector": "bound_screen",
+        "summary": "mean"
+      },
+      "rows": [
+        {
+          "ctx_len": 2048,
+          "depth": 0.1,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -2.083856658935547,
+          "per_trial": [
+            {
+              "key": "60494",
+              "correct": false,
+              "logprob_per_token": -2.2933807373046875,
+              "completion_tokens": 5
+            },
+            {
+              "key": "65125",
+              "correct": false,
+              "logprob_per_token": -1.440947914123535,
+              "completion_tokens": 5
+            },
+            {
+              "key": "15306",
+              "correct": false,
+              "logprob_per_token": -1.9261716842651366,
+              "completion_tokens": 5
+            },
+            {
+              "key": "43936",
+              "correct": false,
+              "logprob_per_token": -2.7086460113525392,
+              "completion_tokens": 5
+            },
+            {
+              "key": "77013",
+              "correct": false,
+              "logprob_per_token": -2.050136947631836,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 2048,
+          "depth": 0.5,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -4.882834777832032,
+          "per_trial": [
+            {
+              "key": "73691",
+              "correct": false,
+              "logprob_per_token": -5.0579078674316404,
+              "completion_tokens": 5
+            },
+            {
+              "key": "63075",
+              "correct": false,
+              "logprob_per_token": -5.0422508239746096,
+              "completion_tokens": 5
+            },
+            {
+              "key": "49755",
+              "correct": false,
+              "logprob_per_token": -4.331131362915039,
+              "completion_tokens": 5
+            },
+            {
+              "key": "72468",
+              "correct": false,
+              "logprob_per_token": -5.649384689331055,
+              "completion_tokens": 5
+            },
+            {
+              "key": "56930",
+              "correct": false,
+              "logprob_per_token": -4.333499145507813,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 2048,
+          "depth": 0.9,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -3.515728988647461,
+          "per_trial": [
+            {
+              "key": "86465",
+              "correct": false,
+              "logprob_per_token": -3.8340995788574217,
+              "completion_tokens": 5
+            },
+            {
+              "key": "38631",
+              "correct": false,
+              "logprob_per_token": -3.1941112518310546,
+              "completion_tokens": 5
+            },
+            {
+              "key": "76150",
+              "correct": false,
+              "logprob_per_token": -3.8559913635253906,
+              "completion_tokens": 5
+            },
+            {
+              "key": "28254",
+              "correct": false,
+              "logprob_per_token": -3.483245086669922,
+              "completion_tokens": 5
+            },
+            {
+              "key": "46941",
+              "correct": false,
+              "logprob_per_token": -3.2111976623535154,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.1,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -3.828858757019043,
+          "per_trial": [
+            {
+              "key": "28316",
+              "correct": false,
+              "logprob_per_token": -4.469779968261719,
+              "completion_tokens": 5
+            },
+            {
+              "key": "22429",
+              "correct": false,
+              "logprob_per_token": -4.325516128540039,
+              "completion_tokens": 5
+            },
+            {
+              "key": "91050",
+              "correct": false,
+              "logprob_per_token": -2.941012382507324,
+              "completion_tokens": 5
+            },
+            {
+              "key": "42834",
+              "correct": false,
+              "logprob_per_token": -3.9799274444580077,
+              "completion_tokens": 5
+            },
+            {
+              "key": "79804",
+              "correct": false,
+              "logprob_per_token": -3.428057861328125,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.5,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -4.88367431640625,
+          "per_trial": [
+            {
+              "key": "88892",
+              "correct": false,
+              "logprob_per_token": -5.294639587402344,
+              "completion_tokens": 5
+            },
+            {
+              "key": "29262",
+              "correct": false,
+              "logprob_per_token": -5.331912994384766,
+              "completion_tokens": 5
+            },
+            {
+              "key": "50651",
+              "correct": false,
+              "logprob_per_token": -4.036962890625,
+              "completion_tokens": 5
+            },
+            {
+              "key": "22945",
+              "correct": false,
+              "logprob_per_token": -5.163493347167969,
+              "completion_tokens": 5
+            },
+            {
+              "key": "19665",
+              "correct": false,
+              "logprob_per_token": -4.591362762451172,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.9,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -4.2140715789794925,
+          "per_trial": [
+            {
+              "key": "99651",
+              "correct": false,
+              "logprob_per_token": -3.8490455627441404,
+              "completion_tokens": 5
+            },
+            {
+              "key": "53279",
+              "correct": false,
+              "logprob_per_token": -4.5647132873535154,
+              "completion_tokens": 5
+            },
+            {
+              "key": "71884",
+              "correct": false,
+              "logprob_per_token": -4.316353988647461,
+              "completion_tokens": 5
+            },
+            {
+              "key": "83375",
+              "correct": false,
+              "logprob_per_token": -4.487084197998047,
+              "completion_tokens": 5
+            },
+            {
+              "key": "23199",
+              "correct": false,
+              "logprob_per_token": -3.853160858154297,
+              "completion_tokens": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "method": "attn_bound_screen_b16_topk24_coarse",
+      "patch_meta": {
+        "method": "adaptive_attention",
+        "n_layers": 28,
+        "targeted_layers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "block_size": 16,
+        "top_k": 24,
+        "mode": "coarse_replace",
+        "selector": "bound_screen",
+        "summary": "mean"
+      },
+      "rows": [
+        {
+          "ctx_len": 2048,
+          "depth": 0.1,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.21045270204544067,
+          "per_trial": [
+            {
+              "key": "60494",
+              "correct": true,
+              "logprob_per_token": -0.05939739942550659,
+              "completion_tokens": 5
+            },
+            {
+              "key": "65125",
+              "correct": true,
+              "logprob_per_token": -0.36571388244628905,
+              "completion_tokens": 5
+            },
+            {
+              "key": "15306",
+              "correct": true,
+              "logprob_per_token": -0.1194683313369751,
+              "completion_tokens": 5
+            },
+            {
+              "key": "43936",
+              "correct": true,
+              "logprob_per_token": -0.3886744737625122,
+              "completion_tokens": 5
+            },
+            {
+              "key": "77013",
+              "correct": true,
+              "logprob_per_token": -0.11900942325592041,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 2048,
+          "depth": 0.5,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -3.5060124206542964,
+          "per_trial": [
+            {
+              "key": "73691",
+              "correct": false,
+              "logprob_per_token": -3.645122528076172,
+              "completion_tokens": 5
+            },
+            {
+              "key": "63075",
+              "correct": false,
+              "logprob_per_token": -3.214823532104492,
+              "completion_tokens": 5
+            },
+            {
+              "key": "49755",
+              "correct": false,
+              "logprob_per_token": -3.5725032806396486,
+              "completion_tokens": 5
+            },
+            {
+              "key": "72468",
+              "correct": false,
+              "logprob_per_token": -3.6132301330566405,
+              "completion_tokens": 5
+            },
+            {
+              "key": "56930",
+              "correct": false,
+              "logprob_per_token": -3.4843826293945312,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 2048,
+          "depth": 0.9,
+          "n_trials": 5,
+          "correct_frac": 0.4,
+          "mean_logprob_per_token": -0.6366453170776367,
+          "per_trial": [
+            {
+              "key": "86465",
+              "correct": false,
+              "logprob_per_token": -0.82874755859375,
+              "completion_tokens": 5
+            },
+            {
+              "key": "38631",
+              "correct": true,
+              "logprob_per_token": -0.4049085140228271,
+              "completion_tokens": 5
+            },
+            {
+              "key": "76150",
+              "correct": true,
+              "logprob_per_token": -0.39791207313537597,
+              "completion_tokens": 5
+            },
+            {
+              "key": "28254",
+              "correct": false,
+              "logprob_per_token": -0.6894115447998047,
+              "completion_tokens": 5
+            },
+            {
+              "key": "46941",
+              "correct": false,
+              "logprob_per_token": -0.8622468948364258,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.1,
+          "n_trials": 5,
+          "correct_frac": 1.0,
+          "mean_logprob_per_token": -0.18257378280162812,
+          "per_trial": [
+            {
+              "key": "28316",
+              "correct": true,
+              "logprob_per_token": -0.22801001071929933,
+              "completion_tokens": 5
+            },
+            {
+              "key": "22429",
+              "correct": true,
+              "logprob_per_token": -0.40790624618530275,
+              "completion_tokens": 5
+            },
+            {
+              "key": "91050",
+              "correct": true,
+              "logprob_per_token": -0.059129148721694946,
+              "completion_tokens": 5
+            },
+            {
+              "key": "42834",
+              "correct": true,
+              "logprob_per_token": -0.1916159987449646,
+              "completion_tokens": 5
+            },
+            {
+              "key": "79804",
+              "correct": true,
+              "logprob_per_token": -0.026207509636878967,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.5,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -3.3753236007690433,
+          "per_trial": [
+            {
+              "key": "88892",
+              "correct": false,
+              "logprob_per_token": -2.854678153991699,
+              "completion_tokens": 5
+            },
+            {
+              "key": "29262",
+              "correct": false,
+              "logprob_per_token": -4.013216018676758,
+              "completion_tokens": 5
+            },
+            {
+              "key": "50651",
+              "correct": false,
+              "logprob_per_token": -2.935001182556152,
+              "completion_tokens": 5
+            },
+            {
+              "key": "22945",
+              "correct": false,
+              "logprob_per_token": -3.8781997680664064,
+              "completion_tokens": 5
+            },
+            {
+              "key": "19665",
+              "correct": false,
+              "logprob_per_token": -3.1955228805541993,
+              "completion_tokens": 5
+            }
+          ]
+        },
+        {
+          "ctx_len": 4096,
+          "depth": 0.9,
+          "n_trials": 5,
+          "correct_frac": 0.0,
+          "mean_logprob_per_token": -3.102951240539551,
+          "per_trial": [
+            {
+              "key": "99651",
+              "correct": false,
+              "logprob_per_token": -2.7997129440307615,
+              "completion_tokens": 5
+            },
+            {
+              "key": "53279",
+              "correct": false,
+              "logprob_per_token": -3.166639709472656,
+              "completion_tokens": 5
+            },
+            {
+              "key": "71884",
+              "correct": false,
+              "logprob_per_token": -3.356633758544922,
+              "completion_tokens": 5
+            },
+            {
+              "key": "83375",
+              "correct": false,
+              "logprob_per_token": -3.501564788818359,
+              "completion_tokens": 5
+            },
+            {
+              "key": "23199",
+              "correct": false,
+              "logprob_per_token": -2.6902050018310546,
+              "completion_tokens": 5
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
