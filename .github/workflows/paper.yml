@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -25,17 +25,40 @@ jobs:
       - name: Build LaTeX paper
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: paper/main.tex
-          working_directory: .
-          # Natbib requires bibtex; pdflatex + bibtex + pdflatex x2 is the classic dance.
-          latexmk_use_xelatex: false
-          latexmk_shell_escape: false
-          args: -pdf -interaction=nonstopmode -halt-on-error -file-line-error
+          root_file: main.tex
+          working_directory: paper
+          # Default latexmk invocation handles bibtex automatically.
 
-      - name: Upload paper PDF
+      - name: Upload paper PDF as workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: certified-block-screening-paper
           path: paper/main.pdf
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 90
+
+      - name: Commit PDF back to paper/ on main
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f paper/main.pdf
+          if git diff --quiet --staged; then
+            echo "No PDF change."
+            exit 0
+          fi
+          git commit -m "ci: rebuild paper PDF [skip ci]"
+          git push
+
+      - name: Publish rolling release (latest-paper)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-paper
+          name: Latest paper build
+          body: |
+            Auto-built paper PDF from commit ${{ github.sha }}.
+            Download: `main.pdf` below.
+          files: paper/main.pdf
+          make_latest: true
+          prerelease: false
